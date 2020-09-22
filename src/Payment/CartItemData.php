@@ -83,7 +83,7 @@ class CartItemData implements OrderItemDataProvider
         $product = $this->data['data'];
         $sku = $product->get_sku();
         if ($product instanceof \WC_Product_Variation) {
-            $sku = $product->parent->get_sku();
+            $sku = $product->get_parent_data()['sku'];
         }
 
         return $sku;
